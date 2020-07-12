@@ -12,18 +12,22 @@
 		877C082B24BA05D8001AFF33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877C082924BA05D8001AFF33 /* Main.storyboard */; };
 		877C082D24BA05D9001AFF33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 877C082C24BA05D9001AFF33 /* Assets.xcassets */; };
 		877C083024BA05D9001AFF33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877C082E24BA05D9001AFF33 /* LaunchScreen.storyboard */; };
-		877C083924BA0689001AFF33 /* Kiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 877C083824BA0689001AFF33 /* Kiss.framework */; };
-		877C083A24BA0689001AFF33 /* Kiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 877C083824BA0689001AFF33 /* Kiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		87E556B924BB06210088BAD3 /* RamdomUserProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E556B824BB06210088BAD3 /* RamdomUserProvider.swift */; };
+		87E556BB24BB06290088BAD3 /* UserKissCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E556BA24BB06290088BAD3 /* UserKissCell.swift */; };
+		87E556BD24BB06400088BAD3 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E556BC24BB06400088BAD3 /* Common.swift */; };
+		87E556BF24BB064B0088BAD3 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E556BE24BB064B0088BAD3 /* RatingView.swift */; };
+		87E556CD24BB1C120088BAD3 /* Kiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CC24BB1C120088BAD3 /* Kiss.framework */; };
+		87E556CE24BB1C120088BAD3 /* Kiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CC24BB1C120088BAD3 /* Kiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		877C083B24BA0689001AFF33 /* Embed Frameworks */ = {
+		87E556B024BB04890088BAD3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				877C083A24BA0689001AFF33 /* Kiss.framework in Embed Frameworks */,
+				87E556CE24BB1C120088BAD3 /* Kiss.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +42,13 @@
 		877C082C24BA05D9001AFF33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		877C082F24BA05D9001AFF33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		877C083124BA05D9001AFF33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		877C083824BA0689001AFF33 /* Kiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kiss.framework; path = ../Carthage/Build/iOS/Static/Kiss.framework; sourceTree = "<group>"; };
+		87E556B824BB06210088BAD3 /* RamdomUserProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RamdomUserProvider.swift; sourceTree = "<group>"; };
+		87E556BA24BB06290088BAD3 /* UserKissCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserKissCell.swift; sourceTree = "<group>"; };
+		87E556BC24BB06400088BAD3 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		87E556BE24BB064B0088BAD3 /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		87E556CC24BB1C120088BAD3 /* Kiss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kiss.framework; path = Carthage/Build/iOS/Kiss.framework; sourceTree = "<group>"; };
+		87E556CF24BB500D0088BAD3 /* yoga.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = yoga.framework; path = Carthage/Build/iOS/yoga.framework; sourceTree = "<group>"; };
+		87E556D224BB50110088BAD3 /* YogaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YogaKit.framework; path = Carthage/Build/iOS/YogaKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				877C083924BA0689001AFF33 /* Kiss.framework in Frameworks */,
+				87E556CD24BB1C120088BAD3 /* Kiss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				877C082324BA05D8001AFF33 /* AppDelegate.swift */,
+				87E556BA24BB06290088BAD3 /* UserKissCell.swift */,
 				877C082724BA05D8001AFF33 /* ViewController.swift */,
+				87E556B824BB06210088BAD3 /* RamdomUserProvider.swift */,
+				87E556BE24BB064B0088BAD3 /* RatingView.swift */,
+				87E556BC24BB06400088BAD3 /* Common.swift */,
 				877C082924BA05D8001AFF33 /* Main.storyboard */,
 				877C082C24BA05D9001AFF33 /* Assets.xcassets */,
 				877C082E24BA05D9001AFF33 /* LaunchScreen.storyboard */,
@@ -86,7 +100,9 @@
 		877C083724BA0689001AFF33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				877C083824BA0689001AFF33 /* Kiss.framework */,
+				87E556D224BB50110088BAD3 /* YogaKit.framework */,
+				87E556CF24BB500D0088BAD3 /* yoga.framework */,
+				87E556CC24BB1C120088BAD3 /* Kiss.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,7 +117,9 @@
 				877C081C24BA05D8001AFF33 /* Sources */,
 				877C081D24BA05D8001AFF33 /* Frameworks */,
 				877C081E24BA05D8001AFF33 /* Resources */,
-				877C083B24BA0689001AFF33 /* Embed Frameworks */,
+				87E556B024BB04890088BAD3 /* Embed Frameworks */,
+				87E556B124BB05010088BAD3 /* Carthage */,
+				87E556C024BB06A00088BAD3 /* Sign Framework */,
 			);
 			buildRules = (
 			);
@@ -158,6 +176,46 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		87E556B124BB05010088BAD3 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Kiss.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		87E556C024BB06A00088BAD3 /* Sign Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Sign Framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nfor f in $(find $CODESIGNING_FOLDER_PATH -name '*.framework')\ndo\n    codesign --force --sign \"${CODE_SIGN_IDENTITY}\" --preserve-metadata=identifier,entitlements --timestamp=none \"$f\"\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		877C081C24BA05D8001AFF33 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -165,6 +223,10 @@
 			files = (
 				877C082824BA05D8001AFF33 /* ViewController.swift in Sources */,
 				877C082424BA05D8001AFF33 /* AppDelegate.swift in Sources */,
+				87E556BB24BB06290088BAD3 /* UserKissCell.swift in Sources */,
+				87E556BF24BB064B0088BAD3 /* RatingView.swift in Sources */,
+				87E556BD24BB06400088BAD3 /* Common.swift in Sources */,
+				87E556B924BB06210088BAD3 /* RamdomUserProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,7 +255,7 @@
 		877C083224BA05D9001AFF33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -226,6 +288,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -253,7 +316,7 @@
 		877C083324BA05D9001AFF33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -286,6 +349,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -310,8 +374,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TT62CQ796U;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
 				INFOPLIST_FILE = KissDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,8 +394,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TT62CQ796U;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
 				INFOPLIST_FILE = KissDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
