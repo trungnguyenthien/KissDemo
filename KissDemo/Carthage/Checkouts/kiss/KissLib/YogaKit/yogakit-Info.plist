@@ -16,5 +16,10 @@
 	<string>1.18.1</string>
 	<key>CFBundleVersion</key>
 	<string>${CURRENT_PROJECT_VERSION}</string>
+    <key>CFBundleSupportedPlatforms</key>
+    <array>
+        <string>iPhoneSimulator</string>
+        <string>iPhoneOS</string>
+    </array>
 </dict>
 </plist>
