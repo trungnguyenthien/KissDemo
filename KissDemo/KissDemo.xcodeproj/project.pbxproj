@@ -16,18 +16,24 @@
 		87E556BB24BB06290088BAD3 /* UserKissCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E556BA24BB06290088BAD3 /* UserKissCell.swift */; };
 		87E556BD24BB06400088BAD3 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E556BC24BB06400088BAD3 /* Common.swift */; };
 		87E556BF24BB064B0088BAD3 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E556BE24BB064B0088BAD3 /* RatingView.swift */; };
-		87E556CD24BB1C120088BAD3 /* Kiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CC24BB1C120088BAD3 /* Kiss.framework */; };
-		87E556CE24BB1C120088BAD3 /* Kiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CC24BB1C120088BAD3 /* Kiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		87E5576F24BE5B560088BAD3 /* Kiss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CC24BB1C120088BAD3 /* Kiss.framework */; };
+		87E5577024BE5B560088BAD3 /* Kiss.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CC24BB1C120088BAD3 /* Kiss.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		87E5577124BE5B560088BAD3 /* yoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CF24BB500D0088BAD3 /* yoga.framework */; };
+		87E5577224BE5B560088BAD3 /* yoga.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556CF24BB500D0088BAD3 /* yoga.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		87E5577324BE5B560088BAD3 /* YogaKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556D224BB50110088BAD3 /* YogaKit.framework */; };
+		87E5577424BE5B560088BAD3 /* YogaKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87E556D224BB50110088BAD3 /* YogaKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		87E556B024BB04890088BAD3 /* Embed Frameworks */ = {
+		87E5577524BE5B560088BAD3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				87E556CE24BB1C120088BAD3 /* Kiss.framework in Embed Frameworks */,
+				87E5577224BE5B560088BAD3 /* yoga.framework in Embed Frameworks */,
+				87E5577024BE5B560088BAD3 /* Kiss.framework in Embed Frameworks */,
+				87E5577424BE5B560088BAD3 /* YogaKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,7 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87E556CD24BB1C120088BAD3 /* Kiss.framework in Frameworks */,
+				87E5577124BE5B560088BAD3 /* yoga.framework in Frameworks */,
+				87E5576F24BE5B560088BAD3 /* Kiss.framework in Frameworks */,
+				87E5577324BE5B560088BAD3 /* YogaKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,9 +125,9 @@
 				877C081C24BA05D8001AFF33 /* Sources */,
 				877C081D24BA05D8001AFF33 /* Frameworks */,
 				877C081E24BA05D8001AFF33 /* Resources */,
-				87E556B024BB04890088BAD3 /* Embed Frameworks */,
 				87E556B124BB05010088BAD3 /* Carthage */,
 				87E556C024BB06A00088BAD3 /* Sign Framework */,
+				87E5577524BE5B560088BAD3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,7 +382,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TT62CQ796U;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KissDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -394,7 +405,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TT62CQ796U;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KissDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
