@@ -11,7 +11,6 @@
 		870C462024BAAAB6006F6235 /* YogaKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87496B3B24BA1C37000B3D60 /* YogaKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		870C462124BAAABC006F6235 /* yoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87496AF824BA1BF6000B3D60 /* yoga.framework */; platformFilter = ios; };
 		870C462224BAAABC006F6235 /* yoga.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87496AF824BA1BF6000B3D60 /* yoga.framework */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		87496AA624BA1B0A000B3D60 /* KissLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 87496AA424BA1B0A000B3D60 /* KissLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		87496ADB24BA1BBF000B3D60 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87496AC024BA1BBF000B3D60 /* UIView+Extension.swift */; };
 		87496ADC24BA1BBF000B3D60 /* layoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87496AC124BA1BBF000B3D60 /* layoutBuilder.swift */; };
 		87496ADD24BA1BBF000B3D60 /* publicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87496AC224BA1BBF000B3D60 /* publicExtension.swift */; };
@@ -80,6 +79,7 @@
 		87496BD524BA9879000B3D60 /* YogaKit.pch in Headers */ = {isa = PBXBuildFile; fileRef = 87496BCB24BA9878000B3D60 /* YogaKit.pch */; platformFilter = ios; };
 		87E556C424BB0BD00088BAD3 /* yoga.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87496AF824BA1BF6000B3D60 /* yoga.framework */; };
 		87E556C524BB0BD00088BAD3 /* yoga.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87496AF824BA1BF6000B3D60 /* yoga.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		87E556E324BD4D9E0088BAD3 /* kiss-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87496AA524BA1B0A000B3D60 /* kiss-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +134,7 @@
 
 /* Begin PBXFileReference section */
 		87496AA124BA1B0A000B3D60 /* Kiss.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kiss.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		87496AA424BA1B0A000B3D60 /* KissLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KissLib.h; sourceTree = "<group>"; };
-		87496AA524BA1B0A000B3D60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87496AA524BA1B0A000B3D60 /* kiss-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kiss-Info.plist"; sourceTree = "<group>"; };
 		87496AC024BA1BBF000B3D60 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		87496AC124BA1BBF000B3D60 /* layoutBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = layoutBuilder.swift; sourceTree = "<group>"; };
 		87496AC224BA1BBF000B3D60 /* publicExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = publicExtension.swift; sourceTree = "<group>"; };
@@ -242,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				87496ABE24BA1BBF000B3D60 /* Swift */,
-				87496AA324BA1B0A000B3D60 /* KissLib */,
 				87496AF924BA1BF6000B3D60 /* yoga */,
 				87496B3C24BA1C37000B3D60 /* YogaKit */,
 				87496AA224BA1B0A000B3D60 /* Products */,
@@ -260,20 +258,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		87496AA324BA1B0A000B3D60 /* KissLib */ = {
-			isa = PBXGroup;
-			children = (
-				87496AA424BA1B0A000B3D60 /* KissLib.h */,
-				87496AA524BA1B0A000B3D60 /* Info.plist */,
-			);
-			path = KissLib;
-			sourceTree = "<group>";
-		};
 		87496ABE24BA1BBF000B3D60 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
 				87496ABF24BA1BBF000B3D60 /* ultility */,
 				87496AC624BA1BBF000B3D60 /* layout */,
+				87496AA524BA1B0A000B3D60 /* kiss-Info.plist */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -404,7 +394,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87496AA624BA1B0A000B3D60 /* KissLib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +543,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E556E324BD4D9E0088BAD3 /* kiss-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,7 +806,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = KissLib/Info.plist;
+				INFOPLIST_FILE = "Swift/kiss-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -852,7 +842,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = KissLib/Info.plist;
+				INFOPLIST_FILE = "Swift/kiss-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
