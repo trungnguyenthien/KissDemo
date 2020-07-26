@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import UIKit
 import Kiss
+import UIKit
 
 class UserKissCell: UICollectionViewCell {
     let mailLabel = "ngthientrung@gmail.com".labelMediumBold
@@ -20,11 +20,11 @@ class UserKissCell: UICollectionViewCell {
     let button = "Detail info".button
     let view1 = makeView(.clear)
     let view2 = makeView(.clear)
-    
+
     lazy var tagLayer = hstack {
         "❤️".labelMedium.layout
     }.mainAlign(.start).padding(10).crossAlign(items: .end)
-    
+
     lazy var stackInfoLayout = vstack {
         mailLabel.layout.marginTop(5)
         ratingView.layout.marginTop(5).height(30)
@@ -33,22 +33,22 @@ class UserKissCell: UICollectionViewCell {
         phoneNum.layout.marginTop(5)
         button.layout.margin(5)
     }
-    
+
     lazy var hLayout = hstack {
-        imageView.layout.grow(1).ratio(1/1)
+        imageView.layout.grow(1).ratio(1 / 1)
         spacer(10)
         stackInfoLayout.cloned.grow(1)
     }.padding(10).crossAlign(items: .start)
-    
+
     lazy var vLayout = vstack {
-        imageView.layout.crossAlign(self: .stretch).ratio(2/2).overlay { tagLayer }
+        imageView.layout.crossAlign(self: .stretch).ratio(2 / 2).overlay { tagLayer }
         spacer(10)
         stackInfoLayout.cloned.growFull()
     }.padding(10).crossAlign(items: .start)
-    
+
     func config(user: User, isPortrait: Bool) {
-        self.backgroundColor = .white
-        
+        backgroundColor = .white
+
         mailLabel.text = user.email
         titleLable.text = "\(user.name.last) \(user.name.first)"
         phoneNum.text = "Tel: \(user.phone)"
@@ -57,12 +57,12 @@ class UserKissCell: UICollectionViewCell {
         kiss.constructIfNeed(layout: isPortrait ? vLayout : hLayout)
         kiss.updateChange(width: frame.size.width, height: frame.size.height)
     }
-    
+
     func preview() {
         kiss.constructIfNeed(layout: vLayout)
         kiss.updateChange()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         kiss.updateChange(width: frame.width, height: frame.height)

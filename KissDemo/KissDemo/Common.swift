@@ -17,7 +17,7 @@ extension UIImageView {
         guard let url = URL(string: url) else { return }
         download(url: url)
     }
-    
+
     func download(url: URL) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -25,13 +25,14 @@ extension UIImageView {
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
-                else { return }
+            else { return }
             DispatchQueue.main.async {
                 self.image = image
             }
         }.resume()
     }
 }
+
 func isPortrait() -> Bool {
     return UIScreen.main.bounds.width < UIScreen.main.bounds.height
 }
@@ -52,7 +53,6 @@ func makeThumbnail() -> UIImageView {
     return imageView
 }
 
-
 func makeIconImage(name: String, size: Double) -> UIImageView {
     let imageView = UIImageView()
     imageView.image = UIImage(named: name)
@@ -60,16 +60,14 @@ func makeIconImage(name: String, size: Double) -> UIImageView {
     return imageView
 }
 
-
 func makeCollection() -> UICollectionView {
-    let clayout = UICollectionViewFlowLayout.init()
+    let clayout = UICollectionViewFlowLayout()
     clayout.scrollDirection = .vertical
     let collection = UICollectionView(frame: .zero, collectionViewLayout: clayout)
     collection.alwaysBounceVertical = true
     collection.isUserInteractionEnabled = true
     return collection
 }
-
 
 func makeView(_ color: UIColor) -> UIView {
     let view = UIView()
@@ -83,34 +81,33 @@ extension String {
         btn.setTitle(self, for: .normal)
         return btn
     }
-    
-    
+
     var label: UILabel {
         let view = UILabel()
 //        view.backgroundColor = .brown
         view.text = self
         view.numberOfLines = 0
-        return view;
+        return view
     }
-    
+
     var labelSmall: UILabel {
         let label = self.label
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         return label
     }
-    
+
     var labelMedium: UILabel {
         let label = self.label
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         return label
     }
-    
+
     var labelMediumBold: UILabel {
         let label = self.label
         label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return label
     }
-    
+
     var labelBigBold: UILabel {
         let label = self.label
         label.font = UIFont.systemFont(ofSize: 20, weight: .bold)

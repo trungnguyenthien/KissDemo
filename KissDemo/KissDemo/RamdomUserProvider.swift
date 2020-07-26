@@ -14,16 +14,17 @@ struct RamdomUserProvider {
     private func makeUrl(page: Int) -> String {
         return baseURL + "\(page)"
     }
+
     let session = URLSession.shared
     func request(page: Int, responseHandler: @escaping (Result<ListUserResult, Error>) -> Void) {
         var request = URLRequest(url: URL(string: makeUrl(page: page))!)
-        request.httpMethod = "GET" 
-        let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
+        request.httpMethod = "GET"
+        let task = session.dataTask(with: request, completionHandler: { data, _, error -> Void in
             if let error = error {
                 responseHandler(.failure(error))
                 return
             }
-            
+
             do {
                 guard let data = data else {
                     throw self.notFoundError
@@ -39,14 +40,15 @@ struct RamdomUserProvider {
     }
 }
 
-
 // MARK: - Response
+
 struct ListUserResult: Codable {
     let results: [User]
     let info: Info
 }
 
 // MARK: - Info
+
 struct Info: Codable {
     let seed: String
     let results, page: Int
@@ -54,6 +56,7 @@ struct Info: Codable {
 }
 
 // MARK: - Result
+
 struct User: Codable {
     let gender: Gender
     let name: Name
@@ -68,23 +71,26 @@ struct User: Codable {
 }
 
 // MARK: - Dob
+
 struct Dob: Codable {
     let date: String
     let age: Int
 }
 
 enum Gender: String, Codable {
-    case female = "female"
-    case male = "male"
+    case female
+    case male
 }
 
 // MARK: - ID
+
 struct ID: Codable {
     let name: String
     let value: String?
 }
 
 // MARK: - Location
+
 struct Location: Codable {
     let street: Street
     let city, state, country: String
@@ -94,6 +100,7 @@ struct Location: Codable {
 }
 
 // MARK: - Coordinates
+
 struct Coordinates: Codable {
     let latitude, longitude: String
 }
@@ -118,21 +125,23 @@ enum Postcode: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .integer(let x):
+        case let .integer(x):
             try container.encode(x)
-        case .string(let x):
+        case let .string(x):
             try container.encode(x)
         }
     }
 }
 
 // MARK: - Street
+
 struct Street: Codable {
     let number: Int
     let name: String
 }
 
 // MARK: - Timezone
+
 struct Timezone: Codable {
     let offset, timezoneDescription: String?
 
@@ -143,17 +152,20 @@ struct Timezone: Codable {
 }
 
 // MARK: - Login
+
 struct Login: Codable {
     let uuid, username, password, salt: String
     let md5, sha1, sha256: String
 }
 
 // MARK: - Name
+
 struct Name: Codable {
     let title, first, last: String
 }
 
 // MARK: - Picture
+
 struct Picture: Codable {
     let large, medium, thumbnail: String
 }

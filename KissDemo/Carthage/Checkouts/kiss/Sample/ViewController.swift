@@ -6,8 +6,8 @@
 //  Copyright © 2020 trungnguyenthien. All rights reserved.
 //
 
-import UIKit
 import Kiss
+import UIKit
 
 enum CellKind: String {
     case kisscell
@@ -18,79 +18,79 @@ class ViewController: UIViewController {
     let provider = RamdomUserProvider()
     var datasource: [User] = []
     private let cache = CacheCellHeight()
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
     private let cellKind = CellKind.kisscell
     let sampleCell = UserKissCell()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UserKissCell.self, forCellWithReuseIdentifier: CellKind.kisscell.rawValue)
         updateBackgroundColor()
-        
+
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.minimumInteritemSpacing = 1
             layout.minimumLineSpacing = 1
         }
-        
-        provider.request(page: 1) { [weak self] (result) in
+
+        provider.request(page: 1) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let listResult):
+            case let .success(listResult):
                 self.datasource.append(contentsOf: listResult.results)
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                     self.updateBackgroundColor()
                     self.cache.clearAll()
                 }
-                
-            case .failure(_):
+
+            case .failure:
                 self.datasource.removeAll()
                 self.collectionView.reloadData()
             }
         }
-        
+
         cache.calculation = calculationHeight
     }
-    
+
     private func calculationHeight(_ row: Int) -> CGFloat {
         sampleCell.config(user: datasource[row], isPortrait: isPortrait())
         let size = sampleCell.kiss.estimatedSize(width: cellWidth(), height: nil)
         return size.height
     }
-    
+
     private func rowHeight(_ row: Int) -> CGFloat {
         let firstRowIndex = Int(CGFloat(row) / numberColumns()) * Int(numberColumns())
         var lastRowIndex = firstRowIndex + Int(numberColumns())
         lastRowIndex = min(lastRowIndex, datasource.count - 1)
-        let rowHeights = (firstRowIndex...lastRowIndex).map { cache.get(at: $0) }
+        let rowHeights = (firstRowIndex ... lastRowIndex).map { cache.get(at: $0) }
         let max = rowHeights.max() ?? 0
 //        print("row = \(row), \tfirstRowIndex = \(firstRowIndex), lastRowIndex = \(lastRowIndex), rowHeights = \(rowHeights), max = \(max)")
         return max
     }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        
+
         // Reload visible item for updating it's layout
         cache.clearAll()
-        self.collectionView.reloadItems(at: self.collectionView.indexPathsForVisibleItems)
+        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
         coordinator.animate(alongsideTransition: nil) { [weak self] _ in
             guard let self = self else { return }
             // invalidateLayout for updating it's layout
             self.collectionView.collectionViewLayout.invalidateLayout()
         }
     }
-    
+
     private func updateBackgroundColor() {
         collectionView.backgroundColor = datasource.isEmpty ? .white : .gray
     }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
         return datasource.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellKind.rawValue, for: indexPath)
         if let cell = cell as? UserKissCell {
@@ -98,16 +98,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         }
         return cell
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: cellWidth(), height: rowHeight(indexPath.row))
     }
-    
-    
+
     func cellWidth() -> CGFloat {
         return (UIScreen.main.bounds.width - numberColumns() - 1) / numberColumns()
     }
-    
+
     func numberColumns() -> CGFloat {
         return isPortrait() ? 4 : 3
     }
@@ -115,11 +114,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 
 class CacheCellHeight {
     private var heightDict = [Int: CGFloat]()
-    var calculation: ((Int) -> CGFloat)? = nil
+    var calculation: ((Int) -> CGFloat)?
     func clearAll() {
         heightDict.removeAll()
     }
-    
+
     func get(at row: Int) -> CGFloat {
         if let value = heightDict[row] {
             return value

@@ -11,22 +11,21 @@ import UIKit
 import YogaKit
 
 extension Double {
-    static public var max: Double = 99999999999999999.0
-    static public var min: Double = -99999999999999999.0
-    static public var sameZero: Double = 0.0000000000000000001
+    public static var max: Double = 99_999_999_999_999_999.0
+    public static var min: Double = -99_999_999_999_999_999.0
+    public static var sameZero: Double = 0.0000000000000000001
 }
-
 
 extension Array {
     func element(_ index: Int) -> Element? {
         if index < 0 || index >= count { return nil }
         return self[index]
     }
-    
+
     var firstIndex: Int {
         return 0
     }
-    
+
     var lastIndex: Int {
         return count - 1
     }
